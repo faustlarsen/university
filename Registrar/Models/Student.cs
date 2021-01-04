@@ -1,22 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+//using System.Windows;
+//using System.ComponentModel.Design;
+
+//using System.DateTime.Date;
 
 namespace Registrar.Models
 {
-    public class Student
+  public class Student
+  {
+    public Student()
     {
-        public Student()
-        {
         this.Courses = new HashSet<CourseStudent>();
-        }
-
-        public int StudentId { get; set; }
-        public string StudentName { get; set; } 
-        public DateTime DateOfEnrollement { get; set; }
-        public ICollection<CourseStudent> Courses { get; }
-
     }
+
+    public int StudentId { get; set; }
+    public string StudentName { get; set; }
+    //public class DisplayNameAttribute : Attribute
+    //{
+    [DisplayName("DateOfEnrollment")]
+    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+    
+    public DateTime DateOfEnrollement { get; set; }
+    //}
+    public ICollection<CourseStudent> Courses { get; }
+
+  }
 }
 
 // DateTime date1 = new DateTime(2008, 6, 1);

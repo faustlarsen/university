@@ -16,7 +16,7 @@
     @Html.EditorFor(model => model.StudentName)
 
     @Html.LabelFor(model => model.DateOfEnrollement)
-    @Html.EditorFor(model => model.DateOfEnrollement, "{0:MM/dd/yyyy}")
+    @Html.TextBoxFor(model => model.DateOfEnrollement, new {@type="date"})
 
     @Html.Label("Select course")
     @Html.DropDownList("CourseId")

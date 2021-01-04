@@ -8,16 +8,15 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.StudentName)
-  @Html.TextBoxFor(model => model.StudentName)
-  
-  @Html.LabelFor(model => model.DateOfEnrollement.Date)
-  @Html.EditorFor(model => model.DateOfEnrollement, "{0:MM/dd/yyyy}")
-  @* @Html.TextBoxFor(model => model.DateOfEnrollement.Date, new {@type = "date", @Value=Model.DateOfEnrollement.ToString("yyy-MM-dd")}) *@
-  
-  @Html.Label("Select course")
-  @Html.DropDownList("CourseId")
+    @Html.LabelFor(model => model.StudentName)
+    @Html.TextBoxFor(model => model.StudentName)
+    
+    @Html.LabelFor(model => model.DateOfEnrollement)
+    @Html.TextBoxFor(model => model.DateOfEnrollement, new {@type="date"})
 
-  <input type="submit" value="Add new student" class="btn btn-default" />
+    @Html.Label("Select course")
+    @Html.DropDownList("CourseId")
+
+    <input type="submit" value="Add new student" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all students", "Index")</p>
