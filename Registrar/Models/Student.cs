@@ -12,7 +12,7 @@ namespace Registrar.Models
         }
 
         public int StudentId { get; set; }
-        public string StudentName { get; set; }
+        public string StudentName { get; set; } 
         public DateTime DateOfEnrollement { get; set; }
         public ICollection<CourseStudent> Courses { get; }
 

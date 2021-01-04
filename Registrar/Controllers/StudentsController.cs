@@ -47,5 +47,20 @@ namespace Registrar.Controllers
         return RedirectToAction("Index");
     }
 
+    public ActionResult Edit(int id)
+    {
+      var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
+      ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
+      return View(thisStudent);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Student student)
+    {
+      _db.Entry(student).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }
