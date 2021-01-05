@@ -18,7 +18,7 @@ else
     <ul>
     @foreach(var join in Model.Students)
     {
-        @* <li>@Html.ActionLink(@join.Student.StudentName, "Details", new { id = student.StudentId}, null)</li> *@
+        <li>@Html.ActionLink(@join.Student.StudentName, "Details", "Students", new { id = join.StudentId })</li>
         <li>@join.Student.StudentName</li>
     }
     </ul>
@@ -28,4 +28,3 @@ else
 <p>@Html.ActionLink("Back to courses", "Index")</p>
 <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
-

@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+@using Registrar.Models
+@model Registrar.Models.Department;
+
+<h2>Departments Details</h2>
+
+<h3>@Html.DisplayFor(model => model.DepartmentName)</h3>
+
+@if(@Model.Courses.Count == 0)
+{
+    <p>This department does not belong to any courses</p>
+}
+else
+{
+  <h4>Courses this department contains:</h4>
+  <ul>
+    @foreach(Course course in Model.Courses)
+    {
+        <li>@Html.ActionLink(@course.CourseName, "Details", "Courses", new { id = course.CourseId })</li>
+    }
+    </ul>
+}
+
+<p>@Html.ActionLink("Add course to this department", "AddCourse", "Departments")</p>
+<p>@Html.ActionLink("Back to departments", "Index")</p>
+<p>@Html.ActionLink("Edit department", "Edit", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Delete department", "Delete", new { id = Model.DepartmentId })</p>

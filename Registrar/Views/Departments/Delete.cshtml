@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Department
+
+<h2>Are you sure?</h2>
+
+@Html.DisplayNameFor(model => model.DepartmentName) : @Html.DisplayFor(model => model.DepartmentName)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to department list", "Index")

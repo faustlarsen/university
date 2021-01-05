@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Department
+
+<h2>Edit</h2>
+
+<h4>Edit this department: @Html.DisplayFor(model => model.DepartmentName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DepartmentId)
+    
+    @Html.LabelFor(model => model.DepartmentName)
+    @Html.EditorFor(model => model.DepartmentName)
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to department list", "Index")</p>

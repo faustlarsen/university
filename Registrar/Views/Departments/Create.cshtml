@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Department
+
+<h4>Add a new department</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DepartmentId)
+
+    @Html.LabelFor(model => model.DepartmentName)
+    @Html.TextBoxFor(model => model.DepartmentName)
+    <input type="submit" value="Add new department" />
+}
+<p>@Html.ActionLink("Show all departments", "Index")</p>
