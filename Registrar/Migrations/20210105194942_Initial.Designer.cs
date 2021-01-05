@@ -9,7 +9,7 @@ using Registrar.Models;
 namespace University.Migrations
 {
     [DbContext(typeof(RegistrarContext))]
-    [Migration("20210104184448_Initial")]
+    [Migration("20210105194942_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -91,7 +91,7 @@ namespace Registrar.Controllers
                 _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });   
             }
             _db.SaveChanges();
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
