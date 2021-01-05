@@ -10,7 +10,7 @@
 
 @if(@Model.Students.Count == 0)
 {
-    <p>This student does not belong to any courses</p>
+    <p>This course does not have any students</p>
 }
 else
 {
@@ -23,7 +23,7 @@ else
     </ul>
 }
 
-<p>@Html.ActionLink("Add student to this course", "AddStudent", "Courses")</p>
+<p>@Html.ActionLink("Add student to this course", "AddStudent", "Courses", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Back to courses", "Index")</p>
 <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
