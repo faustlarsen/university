@@ -76,7 +76,7 @@ namespace Registrar.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult AddCourse(int id)
         {
             var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
@@ -88,7 +88,7 @@ namespace Registrar.Controllers
         {
             if (CourseId != 0)
             {
-                _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });   
+                _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
             }
             _db.SaveChanges();
             return RedirectToAction("Index");

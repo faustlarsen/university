@@ -24,6 +24,7 @@ namespace Registrar.Controllers
 
     public ActionResult Create()
     {
+        ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
         return View();
     }
 
@@ -78,11 +79,9 @@ namespace Registrar.Controllers
     [HttpPost]
     public ActionResult AddCourse(Course course, int DepartmentId)
     {
-        
         _db.Courses.Add(new Course() { CourseId = course.CourseId, DepartmentId = DepartmentId });   
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
-
   }
 }

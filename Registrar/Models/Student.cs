@@ -15,6 +15,7 @@ namespace Registrar.Models
         public int StudentId { get; set; }
         public string StudentName { get; set; }
         [DisplayName("DateOfEnrollment")]
+        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DateOfEnrollement { get; set; }
         public ICollection<CourseStudent> Courses { get; }
