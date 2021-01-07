@@ -16,7 +16,7 @@ else
 {
   <h4>Courses this department contains:</h4>
   <ul>
-    @foreach(Course course in Model.Courses)
+    @foreach(Course course in ViewBag.foundCourses)
     {
         <li>@Html.ActionLink(@course.CourseName, "Details", "Courses", new { id = course.CourseId })</li>
     }
