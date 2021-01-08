@@ -4,7 +4,7 @@
 
 @using Registrar.Models;
 @model List<Registrar.Models.Department>;
-
+<div class="container card">
 <h1>University Departments</h1>
 <form>
     <i class="glyphicon glyphicon-search"></i><input type="text" name="DepSearch" placeholder="search and press enter">
@@ -22,3 +22,4 @@
 
 <p>@Html.ActionLink("Add new department", "Create")</p>
 <strong><p>@Html.ActionLink("Delete All Departments", "DeleteAll")</p></strong>
+</div>

@@ -4,7 +4,7 @@
 
 @using Registrar.Models;
 @model List<Registrar.Models.Course>;
-
+<div class="container card">
 <h1>Courses</h1>
 <form>
     <i class="glyphicon glyphicon-search"></i><input type="text" name="CourseSearch" placeholder="search and press enter">
@@ -15,10 +15,20 @@
     <h3>No courses have been added.</h3>
 }
 
+@if (ViewBag.Departments == 0) // check syntax
+{
+    <h3>No courses can be added until departments have been added. No departments yet exist.</h3>
+    <p>@Html.ActionLink("Add new department", "Departments/Create")</p>//check Departments/Create syntax
+}
+else
+{
 @foreach (Course course in Model)
 {
     <li>@Html.ActionLink($"{course.CourseName}", "Details", new { id = course.CourseId })</li>
 }
 
 <p>@Html.ActionLink("Add new course", "Create")</p>
+}
+
 <strong><p>@Html.ActionLink("Delete All Courses", "DeleteAll")</p></strong>
+</div>

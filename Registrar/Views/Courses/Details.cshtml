@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Course;
-
+<div class="container card">
 <h2>Course Details</h2>
 
 <h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName)</h3>
@@ -27,3 +27,4 @@ else
 <p>@Html.ActionLink("Back to courses", "Index")</p>
 <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>
+</div>

@@ -27,7 +27,13 @@ namespace Registrar.Controllers
 
     public ActionResult Create()
     {
-  
+
+      // if(department==null){
+      // return View()
+      //   } else {
+      //   _db.Departments.Add(department);
+      //   _db.SaveChanges();
+      //   }
       ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
       return View();
     }

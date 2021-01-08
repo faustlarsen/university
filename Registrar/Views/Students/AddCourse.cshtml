@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Student
-
+<div class="container card">
 <h2>Add a course</h2>
 <h4>Add a course to this student: @Html.DisplayFor(model => model.StudentName)</h4>
 
@@ -18,3 +18,4 @@
 }
 
 <p>@Html.ActionLink("Back to students", "Index")</p>
+</div>

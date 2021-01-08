@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Student
-
+<div class="container card">
 <h4>Add a new student</h4>
 
 @using (Html.BeginForm())
@@ -20,3 +20,4 @@
     <input type="submit" value="Add new student" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all students", "Index")</p>
+</div>

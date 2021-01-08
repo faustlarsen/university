@@ -3,7 +3,7 @@
 }
 @using Registrar.Models
 @model Registrar.Models.Department;
-
+<div class="container card">
 <h2>Departments Details</h2>
 
 <h3>@Html.DisplayFor(model => model.DepartmentName)</h3>
@@ -27,3 +27,4 @@ else
 <p>@Html.ActionLink("Back to departments", "Index")</p>
 <p>@Html.ActionLink("Edit department", "Edit", new { id = Model.DepartmentId })</p> 
 <p>@Html.ActionLink("Delete department", "Delete", new { id = Model.DepartmentId })</p>
+</div>

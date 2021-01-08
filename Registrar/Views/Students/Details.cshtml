@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Student
-
+<div class="container card">
 <h2>Student Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.StudentName): @Html.DisplayFor(model => model.StudentName)</h3>
@@ -32,3 +32,4 @@ else
 <p>@Html.ActionLink("Edit Student", "Edit", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
+</div>

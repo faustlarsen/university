@@ -1,4 +1,26 @@
+
+.card  {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 1%;
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+
+}
+
+.nav {
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
 body {
-  margin: 0 auto;
-  max-width: 1200px;
+  display: auto;
+  background-image: url("https://img.wallpapersafari.com/desktop/1600/900/8/3/gtdNUM.jpg");
+}
+
+h4, h3, h2, a {
+  color: rgb(0, 0, 0);
+}
+h6 {
+  color: rgb(0, 0, 0);
 }

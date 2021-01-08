@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 @model Registrar.Models.Department;
-
+<div class="container card">
 <h2>Add a course</h2>
 <h4>Add a course to this department: @Html.DisplayFor(model => model.DepartmentName)</h4>
 
@@ -17,3 +17,4 @@
 }
 
 <p>@Html.ActionLink("Back to departments", "Index")</p>
+</div>

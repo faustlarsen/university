@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Course
-
+<div class="container card">
 <h2>Add a student</h2>
 <h4>Add a student to this course: @Html.DisplayFor(model => model.CourseName)</h4>
 
@@ -17,4 +17,5 @@
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to courses", "Index")</p>
+<p>@Html.ActionLink("Back to courses", "Index")</p>\
+</div>

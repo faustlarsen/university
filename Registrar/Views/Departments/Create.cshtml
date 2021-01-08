@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Department
-
+<div class="container card">
 <h4>Add a new department</h4>
 @using (Html.BeginForm())
 {
@@ -17,3 +17,4 @@
     <input type="submit" value="Add new department" />
 }
 <p>@Html.ActionLink("Show all departments", "Index")</p> 
+</div>

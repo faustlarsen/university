@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Department
-
+<div class="container card">
 <h2>Are you sure?</h2>
 
 @Html.DisplayNameFor(model => model.DepartmentName) : @Html.DisplayFor(model => model.DepartmentName)
@@ -12,3 +12,4 @@
     <input type="submit" value="Delete" />
 }
 @Html.ActionLink("Back to department list", "Index")
+</div>
