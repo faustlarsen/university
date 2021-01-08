@@ -16,9 +16,12 @@ namespace Registrar.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(string DepSearch)
     {
         List<Department> model = _db.Departments.ToList();
+        if(DepSearch!=null){
+          model = _db.Departments.Where(departments => departments.DepartmentName.Contains(DepSearch)).ToList();
+        }
         return View(model);
     }
 
@@ -90,42 +93,23 @@ namespace Registrar.Controllers
         return RedirectToAction("Index");
     }
 
-    // [HttpPost]
-    // public ActionResult Edit(Item item)
-    // {
-    //   _db.Entry(item).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+      public ActionResult DeleteAll()
+        {
+            var allDepartments = _db.Departments.ToList();
+            return View();
+        }
 
-    // [HttpPost]
-    // public ActionResult Create(Student student, int CourseId)
-    // {
-    //     _db.Students.Add(student);
-    //     if (CourseId != 0)
-    //     {
-              // var thisCourseStudent = _db.CourseStudent.FirstOrDefault(courseStudent => courseStudent.CourseId == CourseId); // needs another condition to check if it has a student associated
-              // if (thisCourse )
-              // {
-              //   _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId});
-              // } else {
-              //   ViewBag.CourseStudentExists = "That course already belongs to this student.";
-              //   return View("CourseStudentExists")
-              //
-    //     }
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+        [HttpPost, ActionName("DeleteAll")]
+            public ActionResult DeleteAllConfirmed()
+        {
+            var allDepartments = _db.Departments.ToList();
 
-    // In your view:
-    // @{
-    //   Timer timer = new Timer();
-    //   timer.interval = 1000; //1sec
-    //   time.Start();
-    //   while(timer > 5000)
-    //   {
-    //     RedirectAction
-    //   }
-    //  }
+        foreach (var department in allDepartments)
+        {
+            _db.Departments.Remove(department);
+        }
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
   }
 }

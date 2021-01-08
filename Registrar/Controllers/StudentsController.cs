@@ -16,9 +16,15 @@ namespace Registrar.Controllers
             _db = db;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string StudentSearch)
         {
-            return View(_db.Students.ToList());
+            List<Student> model = _db.Students.ToList();
+            var sortedStudents = model.OrderBy( x => x.DateOfEnrollement.Year);
+            var listAgain = sortedStudents.ToList();
+            if (StudentSearch!=null) {
+                listAgain = _db.Students.Where(students => students.StudentName.Contains(StudentSearch)).ToList();
+                }
+            return View(listAgain);
         }
 
         public ActionResult Details(int id)
@@ -103,5 +109,23 @@ namespace Registrar.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteAll()
+        {
+            var allStudents = _db.Students.ToList();
+            return View();
+        }
+
+        [HttpPost, ActionName("DeleteAll")]
+            public ActionResult DeleteAllConfirmed()
+        {
+            var allStudents = _db.Students.ToList();
+
+        foreach (var student in allStudents)
+        {
+            _db.Students.Remove(student);
+        }
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

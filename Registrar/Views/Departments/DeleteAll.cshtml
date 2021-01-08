@@ -4,12 +4,12 @@
 @model List<Registrar.Models.Course>;
 
 <div class="container card">
-    <h2>DELETE ALL COURSES?</h2>
+    <h2>DELETE ALL DEPARTMENTS?</h2>
     <hr>
     @using (Html.BeginForm())
     {
         <button class="btn btn-primary" type="submit" value="DeleteAll">YES</button>
     }
     <br>
-    <strong><p>@Html.ActionLink("Back to course list", "Index")</p></strong>
+    <strong><p>@Html.ActionLink("Back to department list", "Index")</p></strong>
 </div>

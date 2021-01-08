@@ -19,7 +19,5 @@ namespace Registrar.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DateOfEnrollement { get; set; }
         public ICollection<CourseStudent> Courses { get; }
-        //public int DepartmentId { get; set; }
-        //public virtual Department Department {get; set; }
   }
 }

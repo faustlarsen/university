@@ -16,14 +16,18 @@ namespace Registrar.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(string CourseSearch)
     {
       List<Course> model = _db.Courses.ToList();
+      if(CourseSearch!=null){
+          model = _db.Courses.Where(courses => courses.CourseName.Contains(CourseSearch)).ToList();
+        }
       return View(model);
     }
 
     public ActionResult Create()
     {
+  
       ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
       return View();
     }
@@ -86,6 +90,25 @@ namespace Registrar.Controllers
     {
         var thisCourse = _db.Courses.FirstOrDefault(courses => courses.CourseId == id);
         _db.Courses.Remove(thisCourse);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+    public ActionResult DeleteAll()
+    {
+        var allCourses = _db.Courses.ToList();
+        return View();
+    }
+
+    [HttpPost, ActionName("DeleteAll")]
+        public ActionResult DeleteAllConfirmed()
+    {
+        var allCourses = _db.Courses.ToList();
+
+    foreach (var course in allCourses)
+    {
+        _db.Courses.Remove(course);
+    }
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
